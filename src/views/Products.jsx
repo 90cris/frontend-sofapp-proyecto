@@ -135,7 +135,7 @@ useEffect(() => {
           <p className="text-center w-100">No hay productos disponibles.</p>
         ) : (
           products.map((producto) => (
-            <Col key={producto.id_producto} sm={6} md={4} lg={3} className="mb-2">
+            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-2">
               <Card className="h-100">
                 <Card.Body>
                   <Card.Title className="text-center">{producto.nombre}</Card.Title>
@@ -150,7 +150,7 @@ useEffect(() => {
                     <Col>
                       <Button
                         variant="warning"
-                        onClick={() => navigate(`/product/${producto.id_producto}`)}
+                        onClick={() => navigate(`/product/${producto.id}`)}
                       >
                         Ver Detalles
                       </Button>

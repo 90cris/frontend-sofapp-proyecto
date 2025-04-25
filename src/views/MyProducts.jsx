@@ -26,7 +26,7 @@ const MyProducts = ({ onClick }) => {
         obtenerProductos();
     }, [id_usuario]);
     // Función para actualizar el stock localmente
-    const actualizarStockLocal = (id_producto, nuevoStock) => {
+    const actualizarStockLocal = (id, nuevoStock) => {
         setProductos((prevProductos) =>
             prevProductos.map((p) =>
                 p.id_producto === id ? { ...p, stock: nuevoStock } : p
