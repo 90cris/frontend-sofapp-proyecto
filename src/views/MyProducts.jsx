@@ -29,26 +29,26 @@ const MyProducts = ({ onClick }) => {
     const actualizarStockLocal = (id_producto, nuevoStock) => {
         setProductos((prevProductos) =>
             prevProductos.map((p) =>
-                p.id_producto === id_producto ? { ...p, stock: nuevoStock } : p
+                p.id_producto === id ? { ...p, stock: nuevoStock } : p
             )
         );
     };
 
     // Incrementar stock
-    const handleIncreaseStock = async (id_producto, stockActual) => {
+    const handleIncreaseStock = async (id, stockActual) => {
         if (stockActual < 5) {
             const nuevoStock = stockActual + 1;
-            await fetchUpdateStock(id_producto, 1);
-            actualizarStockLocal(id_producto, nuevoStock);
+            await fetchUpdateStock(id, 1);
+            actualizarStockLocal(id, nuevoStock);
         }
     };
 
     // Decrementar stock
-    const handleDecreaseStock = async (id_producto, stockActual) => {
+    const handleDecreaseStock = async (id, stockActual) => {
         if (stockActual > 0) {
             const nuevoStock = stockActual - 1;
-            await fetchUpdateStock(id_producto, -1);
-            actualizarStockLocal(id_producto, nuevoStock);
+            await fetchUpdateStock(id, -1);
+            actualizarStockLocal(id, nuevoStock);
         }
     };
 
@@ -58,7 +58,7 @@ const MyProducts = ({ onClick }) => {
             <Row className="m-3">
                 {productos.length > 0 ? (
                     productos.map((producto) => (
-                        <Col key={producto.id_producto} sm={6} md={4} lg={3} >
+                        <Col key={producto.id} sm={6} md={4} lg={3} >
                             <Card onClick={onClick} style={{ cursor: "pointer" }} className="h-100">
                                 <Card.Body>
                                     <Card.Title>{producto.nombre}</Card.Title>
@@ -82,14 +82,14 @@ const MyProducts = ({ onClick }) => {
         <div>
           <Button
             variant="danger"
-            onClick={() => handleDecreaseStock(producto.id_producto, producto.stock)}
+            onClick={() => handleDecreaseStock(producto.id, producto.stock)}
             disabled={producto.stock === 0}
           >
             -
           </Button>
           <Button
             variant="success"
-            onClick={() => handleIncreaseStock(producto.id_producto, producto.stock)}
+            onClick={() => handleIncreaseStock(producto.id, producto.stock)}
             disabled={producto.stock === 5}
             className="ms-2"
           >
@@ -104,7 +104,7 @@ const MyProducts = ({ onClick }) => {
     <div style={{ textAlign: "center", width: "100%", marginTop: "8px" }}>
       <Button
         variant="warning"
-        onClick={() => navigate(`/product/${producto.id_producto}`)}
+        onClick={() => navigate(`/product/${producto.id}`)}
       >
         Ver Detalles
       </Button>
