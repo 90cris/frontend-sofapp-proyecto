@@ -29,7 +29,7 @@ const MyProducts = ({ onClick }) => {
     const actualizarStockLocal = (id, nuevoStock) => {
         setProductos((prevProductos) =>
             prevProductos.map((p) =>
-                p.id_producto === id ? { ...p, stock: nuevoStock } : p
+                p.id === id ? { ...p, stock: nuevoStock } : p
             )
         );
     };
