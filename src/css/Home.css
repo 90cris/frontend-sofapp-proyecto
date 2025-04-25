@@ -1,0 +1,25 @@
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  width: 7%;
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 50%; 
+  width: 50px;
+  height: 50px;
+}
+
+.custom-carousel .carousel-caption {
+  background: rgba(0, 0, 0, 0.5); 
+  border-radius: 10px;
+  padding: 10px;
+}
+.align-items-start {
+  align-items: flex-start !important;
+}
+.ContenedorH1{
+  margin-top: 120px !important;
+}
